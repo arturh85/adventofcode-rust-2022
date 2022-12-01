@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-AOC_YEAR=2021
+AOC_YEAR=2022
 TERM_TIMEOUT=3m
 KILL_TIMEOUT=4m
 
