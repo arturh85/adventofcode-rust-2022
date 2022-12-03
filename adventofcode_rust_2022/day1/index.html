@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Day 1: Calorie Counting"><meta name="keywords" content="rust, rustlang, rust-lang, day1"><title>adventofcode_rust_2022::day1 - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../normalize.css"><link rel="stylesheet" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../ayu.css" disabled><link rel="stylesheet" href="../../dark.css" disabled><link rel="stylesheet" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc mod"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../adventofcode_rust_2022/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../adventofcode_rust_2022/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a><h2 class="location"><a href="#">Module day1</a></h2><div class="sidebar-elems"><section><div class="block"><ul><li><a href="#modules">Modules</a></li><li><a href="#functions">Functions</a></li></ul></div></section></div></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../adventofcode_rust_2022/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="main-heading"><h1 class="fqn"><span class="in-band">Module <a href="../index.html">adventofcode_rust_2022</a>::<wbr><a class="mod" href="#">day1</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../../clipboard.svg" width="19" height="18" alt="Copy item path"></button></span></h1><span class="out-of-band"><a class="srclink" href="../../src/adventofcode_rust_2022/day1.rs.html#1-147">source</a> · <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span></div><details class="rustdoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><h2 id="day-1-calorie-counting"><a href="#day-1-calorie-counting">Day 1: Calorie Counting</a></h2>
+<p>Santa’s reindeer typically eat regular reindeer food, but they need a lot of
+<a href="https://adventofcode.com/2018/day/25">magical energy</a> to deliver presents on Christmas.
+For that, their favorite snack is a special type of star fruit that only grows deep in the jungle.
+The Elves have brought you on their annual expedition to the grove where the fruit grows.</p>
+<p>To supply enough magical energy, the expedition needs to retrieve a minimum of fifty stars by
+December 25th. Although the Elves assure you that the grove has plenty of fruit, you decide to
+grab any fruit you see along the way, just in case.</p>
+<p>Collect stars by solving puzzles. Two puzzles will be made available on each day in the Advent
+calendar; the second puzzle is unlocked when you complete the first. Each puzzle grants one star.
+Good luck!</p>
+<p>The jungle must be too overgrown and difficult to navigate in vehicles or access from the air;
+the Elves’ expedition traditionally goes on foot. As your boats approach land, the Elves begin
+taking inventory of their supplies. One important consideration is food - in particular,
+the number of Calories each Elf is carrying (your puzzle input).</p>
+<p>The Elves take turns writing down the number of Calories contained by the various meals,
+snacks, rations, etc. that they’ve brought with them, one item per line. Each Elf separates
+their own inventory from the previous Elf’s inventory (if any) by a blank line.</p>
+<p>For example, suppose the Elves finish writing their items’ Calories and end up with the
+following list:</p>
+<div class="example-wrap"><pre class="language-plain"><code>1000
+2000
+3000
+
+4000
+
+5000
+6000
+
+7000
+8000
+9000
+
+10000
+</code></pre></div>
+<p>This list represents the Calories of the food carried by five Elves:</p>
+<ul>
+<li>The first Elf is carrying food with <code>1000</code>, <code>2000</code>, and <code>3000</code> Calories,
+a total of <code>6000</code> Calories.</li>
+<li>The second Elf is carrying one food item with <code>4000</code> Calories.</li>
+<li>The third Elf is carrying food with <code>5000</code> and <code>6000</code> Calories,
+a total of <code>11000</code> Calories.</li>
+<li>The fourth Elf is carrying food with <code>7000</code>, <code>8000</code>, and <code>9000</code> Calories,
+a total of <code>24000</code> Calories.</li>
+<li>The fifth Elf is carrying one food item with <code>10000</code> Calories.</li>
+</ul>
+<p>In case the Elves get hungry and need extra snacks, they need to know which Elf to ask:
+they’d like to know how many Calories are being carried by the Elf carrying the most Calories.
+In the example above, this is <code>24000</code> (carried by the fourth Elf).</p>
+<p>Find the Elf carrying the most Calories. How many total Calories is that Elf carrying?</p>
+<h3 id="part-two"><a href="#part-two">Part Two</a></h3>
+<p>By the time you calculate the answer to the Elves’ question, they’ve already realized that the
+Elf carrying the most Calories of food might eventually run out of snacks.</p>
+<p>To avoid this unacceptable situation, the Elves would instead like to know the total Calories
+carried by the top three Elves carrying the most Calories. That way, even if one of those Elves
+runs out of snacks, they still have two backups.</p>
+<p>In the example above, the top three Elves are the fourth Elf (with <code>24000</code> Calories), then the
+third Elf (with <code>11000</code> Calories), then the fifth Elf (with <code>10000</code> Calories). The sum of the
+Calories carried by these three elves is <code>45000</code>.</p>
+<p>Find the top three Elves carrying the most Calories.
+<strong>How many Calories are those Elves carrying in total?</strong></p>
+</div></details><h2 id="modules" class="small-section-header"><a href="#modules">Modules</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="mod" href="day1_part1/index.html" title="adventofcode_rust_2022::day1::day1_part1 mod">day1_part1</a><span title="Restricted Visibility">&nbsp;🔒</span> </div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="day1_part2/index.html" title="adventofcode_rust_2022::day1::day1_part2 mod">day1_part2</a><span title="Restricted Visibility">&nbsp;🔒</span> </div></div></div><h2 id="functions" class="small-section-header"><a href="#functions">Functions</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="fn" href="fn.parse_input.html" title="adventofcode_rust_2022::day1::parse_input fn">parse_input</a><span title="Restricted Visibility">&nbsp;🔒</span> </div></div><div class="item-row"><div class="item-left module-item"><a class="fn" href="fn.part1.html" title="adventofcode_rust_2022::day1::part1 fn">part1</a><span title="Restricted Visibility">&nbsp;🔒</span> </div><div class="item-right docblock-short">Part 1</div></div><div class="item-row"><div class="item-left module-item"><a class="fn" href="fn.part2.html" title="adventofcode_rust_2022::day1::part2 fn">part2</a><span title="Restricted Visibility">&nbsp;🔒</span> </div><div class="item-right docblock-short">Part 2</div></div></div></section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="adventofcode_rust_2022" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0 (897e37553 2022-11-02)" ></div></body></html>
