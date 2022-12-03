@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 use ndarray::Array2;
 use petgraph::graph::NodeIndex;
 use petgraph::Graph;

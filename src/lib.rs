@@ -15,5 +15,6 @@ extern crate aoc_runner;
 
 mod day1;
 mod util;
+mod day2;
 
 aoc_lib! { year = 2022 }
